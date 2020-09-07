@@ -43,7 +43,6 @@ export const PostsList = () => {
   if (postStatus === 'loading') {
     content = <div className="loader">Loading...</div>
   } else if (postStatus === 'succeeded') {
-    console.log('succeed')
     // Sort posts in reverse chronological order by datetime string
     const orderedPosts = posts
       .slice()
@@ -52,7 +51,6 @@ export const PostsList = () => {
     content = orderedPosts.map((post) => (
       <PostExcerpt key={post.id} post={post} />
     ))
-    console.log('content', content)
   } else if (postStatus === 'error') {
     content = <div>{error}</div>
   }
